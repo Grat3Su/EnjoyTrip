@@ -9,6 +9,7 @@
                 class="form-control"
                 v-model.lazy="mapStore.searchWord"
                 placeholder="Search"
+                style="background-color: rgb(234, 234, 234)"
                 @keyup.enter="searchPlace(mapStore.searchWord)"
             />
             <button

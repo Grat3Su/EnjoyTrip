@@ -2,6 +2,7 @@ package com.mycom.enjoytrip.attr.controller;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,6 +26,13 @@ public class AttrController {
 	@GetMapping(value="attrs/list/{pageIdx}")
 	public List<AttrDto> list(@PathVariable int pageIdx){
 		List<AttrDto> list = service.list(pageIdx);
+		System.out.println(list);
+		return list;
+	}
+	
+	@GetMapping(value="attrs/searchlist")
+	public List<AttrDto> searchList(@RequestParam("searchWord") String searchWord, @RequestParam("pageIdx") int pageIdx){
+		List<AttrDto> list = service.searchList(searchWord, pageIdx);
 		System.out.println(list);
 		return list;
 	}

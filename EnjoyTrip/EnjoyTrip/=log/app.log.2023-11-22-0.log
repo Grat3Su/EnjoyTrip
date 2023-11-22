@@ -2792,120 +2792,20 @@ Caused by: java.lang.ClassNotFoundException: Cannot find class:  int
  java.lang.Thread.run(Thread.java:750)
 2023-11-22 17:16:32.218  INFO 12284 --- [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2023-11-22 17:16:32.224  INFO 12284 --- [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2023-11-22 17:26:02.392  INFO 5336 --- [restartedMain] c.mycom.enjoytrip.EnjoyTripApplication   : Starting EnjoyTripApplication using Java 1.8.0_372 on DESKTOP-MDJG1NJ with PID 5336 (C:\SSAFY\EnjoyTrip\EnjoyTrip\bin\main started by SSAFY in C:\SSAFY\EnjoyTrip\EnjoyTrip)
-2023-11-22 17:26:02.393  INFO 5336 --- [restartedMain] c.mycom.enjoytrip.EnjoyTripApplication   : No active profile set, falling back to 1 default profile: "default"
-2023-11-22 17:26:02.428  INFO 5336 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2023-11-22 17:26:02.428  INFO 5336 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2023-11-22 17:26:03.140  INFO 5336 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2023-11-22 17:26:03.146  INFO 5336 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2023-11-22 17:26:03.146  INFO 5336 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.82]
-2023-11-22 17:26:03.194  INFO 5336 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2023-11-22 17:26:03.194  INFO 5336 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 766 ms
-2023-11-22 17:26:03.694  INFO 5336 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2023-11-22 17:26:03.716  INFO 5336 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2023-11-22 17:26:03.723  INFO 5336 --- [restartedMain] c.mycom.enjoytrip.EnjoyTripApplication   : Started EnjoyTripApplication in 1.592 seconds (JVM running for 2.127)
-2023-11-22 17:26:48.788  INFO 5336 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2023-11-22 17:26:48.789  INFO 5336 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2023-11-22 17:26:48.789  INFO 5336 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
-2023-11-22 17:26:48.833  INFO 5336 --- [http-nio-8080-exec-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2023-11-22 17:26:49.052  INFO 5336 --- [http-nio-8080-exec-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2023-11-22 17:29:08.595  INFO 5336 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
-2023-11-22 17:29:08.654  INFO 5336 --- [Thread-6] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
-2023-11-22 17:29:08.655  INFO 5336 --- [Thread-6] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
-2023-11-22 17:29:08.659  WARN 5336 --- [Thread-6] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [HikariPool-1 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
- sun.misc.Unsafe.park(Native Method)
- java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:215)
- java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2083)
- java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1093)
- java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:809)
- java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1074)
- java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1134)
- java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
- java.lang.Thread.run(Thread.java:750)
-2023-11-22 17:29:08.663  INFO 5336 --- [Thread-6] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2023-11-22 17:29:08.681  INFO 5336 --- [Thread-6] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2023-11-22 17:29:08.790  INFO 5336 --- [restartedMain] c.mycom.enjoytrip.EnjoyTripApplication   : Starting EnjoyTripApplication using Java 1.8.0_372 on DESKTOP-MDJG1NJ with PID 5336 (C:\SSAFY\EnjoyTrip\EnjoyTrip\bin\main started by SSAFY in C:\SSAFY\EnjoyTrip\EnjoyTrip)
-2023-11-22 17:29:08.790  INFO 5336 --- [restartedMain] c.mycom.enjoytrip.EnjoyTripApplication   : No active profile set, falling back to 1 default profile: "default"
-2023-11-22 17:29:09.012  INFO 5336 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2023-11-22 17:29:09.013  INFO 5336 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2023-11-22 17:29:09.013  INFO 5336 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.82]
-2023-11-22 17:29:09.023  INFO 5336 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2023-11-22 17:29:09.023  INFO 5336 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 231 ms
-2023-11-22 17:29:09.142  INFO 5336 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2023-11-22 17:29:09.149  INFO 5336 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2023-11-22 17:29:09.152  INFO 5336 --- [restartedMain] c.mycom.enjoytrip.EnjoyTripApplication   : Started EnjoyTripApplication in 0.389 seconds (JVM running for 187.556)
-2023-11-22 17:29:09.153  INFO 5336 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
-2023-11-22 17:30:13.789  INFO 5336 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2023-11-22 17:30:13.790  INFO 5336 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2023-11-22 17:30:13.791  INFO 5336 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2023-11-22 17:30:13.793  INFO 5336 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
-2023-11-22 17:30:13.805  INFO 5336 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
-2023-11-22 17:32:50.575 DEBUG 5336 --- [http-nio-8080-exec-1] c.m.enjoytrip.board.dao.BoardDao.list    : ==>  Preparing: select boardId, boardTitle, boardDetail, boardTime, userId, userName from board where board.boardDetail like CONCAT('%', ?, '%') or board.boardTitle like CONCAT('%', ?, '%') order by boardId desc LIMIT ? OFFSET ?
-2023-11-22 17:32:50.581 DEBUG 5336 --- [http-nio-8080-exec-1] c.m.enjoytrip.board.dao.BoardDao.list    : ==> Parameters: (String), (String), 10(Integer), 0(Integer)
-2023-11-22 17:32:50.589 DEBUG 5336 --- [http-nio-8080-exec-1] c.m.enjoytrip.board.dao.BoardDao.list    : <==      Total: 10
-2023-11-22 17:32:50.593 DEBUG 5336 --- [http-nio-8080-exec-2] c.m.enjoytrip.board.dao.BoardDao.list    : ==>  Preparing: select boardId, boardTitle, boardDetail, boardTime, userId, userName from board where board.boardDetail like CONCAT('%', ?, '%') or board.boardTitle like CONCAT('%', ?, '%') order by boardId desc LIMIT ? OFFSET ?
-2023-11-22 17:32:50.594 DEBUG 5336 --- [http-nio-8080-exec-2] c.m.enjoytrip.board.dao.BoardDao.list    : ==> Parameters: (String), (String), 10(Integer), 0(Integer)
-2023-11-22 17:32:50.597 DEBUG 5336 --- [http-nio-8080-exec-2] c.m.enjoytrip.board.dao.BoardDao.list    : <==      Total: 10
-2023-11-22 17:32:59.412 DEBUG 5336 --- [http-nio-8080-exec-3] c.m.enjoytrip.board.dao.BoardDao.list    : ==>  Preparing: select boardId, boardTitle, boardDetail, boardTime, userId, userName from board where board.boardDetail like CONCAT('%', ?, '%') or board.boardTitle like CONCAT('%', ?, '%') order by boardId desc LIMIT ? OFFSET ?
-2023-11-22 17:32:59.412 DEBUG 5336 --- [http-nio-8080-exec-3] c.m.enjoytrip.board.dao.BoardDao.list    : ==> Parameters: (String), (String), 10(Integer), 0(Integer)
-2023-11-22 17:32:59.414 DEBUG 5336 --- [http-nio-8080-exec-3] c.m.enjoytrip.board.dao.BoardDao.list    : <==      Total: 10
-2023-11-22 17:32:59.417 DEBUG 5336 --- [http-nio-8080-exec-4] c.m.enjoytrip.board.dao.BoardDao.list    : ==>  Preparing: select boardId, boardTitle, boardDetail, boardTime, userId, userName from board where board.boardDetail like CONCAT('%', ?, '%') or board.boardTitle like CONCAT('%', ?, '%') order by boardId desc LIMIT ? OFFSET ?
-2023-11-22 17:32:59.418 DEBUG 5336 --- [http-nio-8080-exec-4] c.m.enjoytrip.board.dao.BoardDao.list    : ==> Parameters: (String), (String), 10(Integer), 0(Integer)
-2023-11-22 17:32:59.420 DEBUG 5336 --- [http-nio-8080-exec-4] c.m.enjoytrip.board.dao.BoardDao.list    : <==      Total: 10
-2023-11-22 17:33:03.376 DEBUG 5336 --- [http-nio-8080-exec-5] c.m.enjoytrip.board.dao.BoardDao.list    : ==>  Preparing: select boardId, boardTitle, boardDetail, boardTime, userId, userName from board where board.boardDetail like CONCAT('%', ?, '%') or board.boardTitle like CONCAT('%', ?, '%') order by boardId desc LIMIT ? OFFSET ?
-2023-11-22 17:33:03.377 DEBUG 5336 --- [http-nio-8080-exec-5] c.m.enjoytrip.board.dao.BoardDao.list    : ==> Parameters: (String), (String), 10(Integer), 0(Integer)
-2023-11-22 17:33:03.378 DEBUG 5336 --- [http-nio-8080-exec-5] c.m.enjoytrip.board.dao.BoardDao.list    : <==      Total: 10
-2023-11-22 17:33:03.390 DEBUG 5336 --- [http-nio-8080-exec-6] c.m.enjoytrip.board.dao.BoardDao.list    : ==>  Preparing: select boardId, boardTitle, boardDetail, boardTime, userId, userName from board where board.boardDetail like CONCAT('%', ?, '%') or board.boardTitle like CONCAT('%', ?, '%') order by boardId desc LIMIT ? OFFSET ?
-2023-11-22 17:33:03.390 DEBUG 5336 --- [http-nio-8080-exec-6] c.m.enjoytrip.board.dao.BoardDao.list    : ==> Parameters: (String), (String), 10(Integer), 0(Integer)
-2023-11-22 17:33:03.392 DEBUG 5336 --- [http-nio-8080-exec-6] c.m.enjoytrip.board.dao.BoardDao.list    : <==      Total: 10
-2023-11-22 17:33:05.278 DEBUG 5336 --- [http-nio-8080-exec-7] c.m.enjoytrip.board.dao.BoardDao.list    : ==>  Preparing: select boardId, boardTitle, boardDetail, boardTime, userId, userName from board where board.boardDetail like CONCAT('%', ?, '%') or board.boardTitle like CONCAT('%', ?, '%') order by boardId desc LIMIT ? OFFSET ?
-2023-11-22 17:33:05.278 DEBUG 5336 --- [http-nio-8080-exec-7] c.m.enjoytrip.board.dao.BoardDao.list    : ==> Parameters: (String), (String), 10(Integer), 0(Integer)
-2023-11-22 17:33:05.280 DEBUG 5336 --- [http-nio-8080-exec-7] c.m.enjoytrip.board.dao.BoardDao.list    : <==      Total: 10
-2023-11-22 17:33:13.607 DEBUG 5336 --- [http-nio-8080-exec-10] c.m.enjoytrip.board.dao.BoardDao.insert  : ==>  Preparing: insert into board ( boardTitle, boardDetail, userId, userName) values(?, ?, ?, ?)
-2023-11-22 17:33:13.608 DEBUG 5336 --- [http-nio-8080-exec-10] c.m.enjoytrip.board.dao.BoardDao.insert  : ==> Parameters: 하이(String), <p>배고파</p>(String), 17(String), 1(String)
-2023-11-22 17:33:13.612 DEBUG 5336 --- [http-nio-8080-exec-9] c.m.enjoytrip.board.dao.BoardDao.list    : ==>  Preparing: select boardId, boardTitle, boardDetail, boardTime, userId, userName from board where board.boardDetail like CONCAT('%', ?, '%') or board.boardTitle like CONCAT('%', ?, '%') order by boardId desc LIMIT ? OFFSET ?
-2023-11-22 17:33:13.612 DEBUG 5336 --- [http-nio-8080-exec-10] c.m.enjoytrip.board.dao.BoardDao.insert  : <==    Updates: 1
-2023-11-22 17:33:13.614 DEBUG 5336 --- [http-nio-8080-exec-9] c.m.enjoytrip.board.dao.BoardDao.list    : ==> Parameters: (String), (String), 10(Integer), 0(Integer)
-2023-11-22 17:33:13.616 DEBUG 5336 --- [http-nio-8080-exec-9] c.m.enjoytrip.board.dao.BoardDao.list    : <==      Total: 10
-2023-11-22 17:33:13.621 DEBUG 5336 --- [http-nio-8080-exec-1] c.m.enjoytrip.board.dao.BoardDao.list    : ==>  Preparing: select boardId, boardTitle, boardDetail, boardTime, userId, userName from board where board.boardDetail like CONCAT('%', ?, '%') or board.boardTitle like CONCAT('%', ?, '%') order by boardId desc LIMIT ? OFFSET ?
-2023-11-22 17:33:13.622 DEBUG 5336 --- [http-nio-8080-exec-1] c.m.enjoytrip.board.dao.BoardDao.list    : ==> Parameters: (String), (String), 10(Integer), 0(Integer)
-2023-11-22 17:33:13.623 DEBUG 5336 --- [http-nio-8080-exec-1] c.m.enjoytrip.board.dao.BoardDao.list    : <==      Total: 10
-2023-11-22 17:33:16.252 DEBUG 5336 --- [http-nio-8080-exec-2] c.m.enjoytrip.board.dao.BoardDao.list    : ==>  Preparing: select boardId, boardTitle, boardDetail, boardTime, userId, userName from board where board.boardDetail like CONCAT('%', ?, '%') or board.boardTitle like CONCAT('%', ?, '%') order by boardId desc LIMIT ? OFFSET ?
-2023-11-22 17:33:16.253 DEBUG 5336 --- [http-nio-8080-exec-2] c.m.enjoytrip.board.dao.BoardDao.list    : ==> Parameters: (String), (String), 10(Integer), 0(Integer)
-2023-11-22 17:33:16.254 DEBUG 5336 --- [http-nio-8080-exec-2] c.m.enjoytrip.board.dao.BoardDao.list    : <==      Total: 10
-2023-11-22 17:33:16.258 DEBUG 5336 --- [http-nio-8080-exec-3] c.m.enjoytrip.board.dao.BoardDao.list    : ==>  Preparing: select boardId, boardTitle, boardDetail, boardTime, userId, userName from board where board.boardDetail like CONCAT('%', ?, '%') or board.boardTitle like CONCAT('%', ?, '%') order by boardId desc LIMIT ? OFFSET ?
-2023-11-22 17:33:16.258 DEBUG 5336 --- [http-nio-8080-exec-3] c.m.enjoytrip.board.dao.BoardDao.list    : ==> Parameters: (String), (String), 10(Integer), 0(Integer)
-2023-11-22 17:33:16.260 DEBUG 5336 --- [http-nio-8080-exec-3] c.m.enjoytrip.board.dao.BoardDao.list    : <==      Total: 10
-2023-11-22 17:33:17.138 DEBUG 5336 --- [http-nio-8080-exec-4] c.m.enjoytrip.board.dao.BoardDao.detail  : ==>  Preparing: select boardId, boardTitle, boardDetail, boardTime, userId, userName from board where boardId = ?
-2023-11-22 17:33:17.139 DEBUG 5336 --- [http-nio-8080-exec-4] c.m.enjoytrip.board.dao.BoardDao.detail  : ==> Parameters: 26(Integer)
-2023-11-22 17:33:17.140 DEBUG 5336 --- [http-nio-8080-exec-4] c.m.enjoytrip.board.dao.BoardDao.detail  : <==      Total: 1
-2023-11-22 17:33:22.986 DEBUG 5336 --- [http-nio-8080-exec-7] c.m.enjoytrip.board.dao.BoardDao.list    : ==>  Preparing: select boardId, boardTitle, boardDetail, boardTime, userId, userName from board where board.boardDetail like CONCAT('%', ?, '%') or board.boardTitle like CONCAT('%', ?, '%') order by boardId desc LIMIT ? OFFSET ?
-2023-11-22 17:33:22.986 DEBUG 5336 --- [http-nio-8080-exec-6] c.m.enjoytrip.board.dao.BoardDao.update  : ==>  Preparing: update board set boardTitle = ? ,boardDetail = ? where boardId = ?
-2023-11-22 17:33:22.986 DEBUG 5336 --- [http-nio-8080-exec-7] c.m.enjoytrip.board.dao.BoardDao.list    : ==> Parameters: (String), (String), 10(Integer), 0(Integer)
-2023-11-22 17:33:22.986 DEBUG 5336 --- [http-nio-8080-exec-6] c.m.enjoytrip.board.dao.BoardDao.update  : ==> Parameters: 하이(String), <p>헬로</p>(String), 26(Integer)
-2023-11-22 17:33:22.988 DEBUG 5336 --- [http-nio-8080-exec-7] c.m.enjoytrip.board.dao.BoardDao.list    : <==      Total: 10
-2023-11-22 17:33:22.989 DEBUG 5336 --- [http-nio-8080-exec-6] c.m.enjoytrip.board.dao.BoardDao.update  : <==    Updates: 1
-2023-11-22 17:33:22.991 DEBUG 5336 --- [http-nio-8080-exec-8] c.m.enjoytrip.board.dao.BoardDao.list    : ==>  Preparing: select boardId, boardTitle, boardDetail, boardTime, userId, userName from board where board.boardDetail like CONCAT('%', ?, '%') or board.boardTitle like CONCAT('%', ?, '%') order by boardId desc LIMIT ? OFFSET ?
-2023-11-22 17:33:22.992 DEBUG 5336 --- [http-nio-8080-exec-8] c.m.enjoytrip.board.dao.BoardDao.list    : ==> Parameters: (String), (String), 10(Integer), 0(Integer)
-2023-11-22 17:33:22.994 DEBUG 5336 --- [http-nio-8080-exec-8] c.m.enjoytrip.board.dao.BoardDao.list    : <==      Total: 10
-2023-11-22 17:33:25.094 DEBUG 5336 --- [http-nio-8080-exec-10] c.m.enjoytrip.board.dao.BoardDao.list    : ==>  Preparing: select boardId, boardTitle, boardDetail, boardTime, userId, userName from board where board.boardDetail like CONCAT('%', ?, '%') or board.boardTitle like CONCAT('%', ?, '%') order by boardId desc LIMIT ? OFFSET ?
-2023-11-22 17:33:25.095 DEBUG 5336 --- [http-nio-8080-exec-10] c.m.enjoytrip.board.dao.BoardDao.list    : ==> Parameters: (String), (String), 10(Integer), 0(Integer)
-2023-11-22 17:33:25.096 DEBUG 5336 --- [http-nio-8080-exec-10] c.m.enjoytrip.board.dao.BoardDao.list    : <==      Total: 10
-2023-11-22 17:33:25.897 DEBUG 5336 --- [http-nio-8080-exec-9] c.m.enjoytrip.board.dao.BoardDao.detail  : ==>  Preparing: select boardId, boardTitle, boardDetail, boardTime, userId, userName from board where boardId = ?
-2023-11-22 17:33:25.897 DEBUG 5336 --- [http-nio-8080-exec-9] c.m.enjoytrip.board.dao.BoardDao.detail  : ==> Parameters: 26(Integer)
-2023-11-22 17:33:25.899 DEBUG 5336 --- [http-nio-8080-exec-9] c.m.enjoytrip.board.dao.BoardDao.detail  : <==      Total: 1
-2023-11-22 18:00:35.198  INFO 5336 --- [RMI TCP Connection(2)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
-2023-11-22 18:00:35.254  INFO 5336 --- [RMI TCP Connection(2)-127.0.0.1] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
-2023-11-22 18:00:35.256  INFO 5336 --- [RMI TCP Connection(2)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
-2023-11-22 18:00:35.260  WARN 5336 --- [RMI TCP Connection(2)-127.0.0.1] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [HikariPool-2 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
- sun.misc.Unsafe.park(Native Method)
- java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:215)
- java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2083)
- java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1093)
- java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:809)
- java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1074)
- java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1134)
- java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
- java.lang.Thread.run(Thread.java:750)
-2023-11-22 18:00:35.266  INFO 5336 --- [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
-2023-11-22 18:00:35.270  INFO 5336 --- [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2023-11-22 22:41:56.221  INFO 2408 --- [restartedMain] c.mycom.enjoytrip.EnjoyTripApplication   : Starting EnjoyTripApplication using Java 1.8.0_382 on DESKTOP-EO21KAH with PID 2408 (C:\Users\Su\Documents\GitHub\EnjoyTrip\EnjoyTrip\EnjoyTrip\bin\main started by Su in C:\Users\Su\Documents\GitHub\EnjoyTrip\EnjoyTrip\EnjoyTrip)
+2023-11-22 22:41:56.222  INFO 2408 --- [restartedMain] c.mycom.enjoytrip.EnjoyTripApplication   : No active profile set, falling back to 1 default profile: "default"
+2023-11-22 22:41:56.287  INFO 2408 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-11-22 22:41:56.288  INFO 2408 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-11-22 22:41:57.352  INFO 2408 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-11-22 22:41:57.361  INFO 2408 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-11-22 22:41:57.361  INFO 2408 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.82]
+2023-11-22 22:41:57.439  INFO 2408 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-11-22 22:41:57.440  INFO 2408 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1151 ms
+2023-11-22 22:41:58.196  INFO 2408 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-11-22 22:41:58.232  INFO 2408 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-11-22 22:41:58.241  INFO 2408 --- [restartedMain] c.mycom.enjoytrip.EnjoyTripApplication   : Started EnjoyTripApplication in 2.422 seconds (JVM running for 3.459)
+2023-11-22 22:42:15.674  INFO 2408 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-11-22 22:42:15.674  INFO 2408 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-11-22 22:42:15.676  INFO 2408 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2023-11-22 22:42:15.830  INFO 2408 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-11-22 22:42:16.198  INFO 2408 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.

@@ -99,4 +99,10 @@ public class AttrServiceImpl implements AttrService{
 		return dao.likeDelete(userId, contentId);
 	}
 
+	@Override
+	public List<AttrDto> searchList(String searchWord, int pageIdx) {
+		searchWord = "%" + searchWord +"%";
+		return dao.searchList(searchWord, pageIdx);
+	}
+
 }

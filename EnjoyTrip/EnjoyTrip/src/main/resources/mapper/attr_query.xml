@@ -31,6 +31,22 @@
 		limit #{pageIdx}, 30;
 	</select>
 
+	<!-- select search -->
+	<select id="searchList" parameterType="map"
+		resultType="com.mycom.enjoytrip.attr.dto.AttrDto">
+		SELECT ds.content_id, info.title, info.addr1, info.addr2,
+		info.first_image,
+		ds.overview, info.sido_code, info.gugun_code
+		FROM
+		attraction_description ds, attraction_info info
+		where
+		ds.content_id =
+		info.content_id
+        and (info.title like #{searchWord} or info.addr1 like #{searchWord})
+		order by ds.content_id asc
+		limit #{pageIdx}, 30;
+	</select>
+
 	<select id="sidoList" parameterType="map"
 		resultType="com.mycom.enjoytrip.attr.dto.AttrDto">
 		SELECT ds.content_id, info.title, info.addr1, info.addr2,

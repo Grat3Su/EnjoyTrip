@@ -46,6 +46,26 @@
             </ul>
         </div>
     </section>
+    <div class="input-group mb-3 mt-3">
+            <!-- mb-3 mt-3  추가 -->
+            <input
+                id="inputSearchWord"
+                type="text"
+                class="form-control"
+                v-model.lazy="searchWord"
+                placeholder="Search"
+                style="background-color: rgb(234, 234, 234)"
+                @keyup.enter="searchPlace()"
+            />
+            <button
+                id="btnSearchWord"
+                class="btn btn-success"
+                @click="searchPlace( )"
+                type="button"
+            >
+                Search
+            </button>
+        </div>
     <section class="loc d-flex flex-row justify-content-around flex-wrap">
         <div
             class="results row"
@@ -168,6 +188,8 @@ const gugunCode = ref(0);
 const sidoList = ref([]);
 const gugunList = ref([]);
 const likeList = ref([]);
+
+const searchWord = ref("");
 
 const fillheart = (contentId) => {
     return Array.from(likeList.value).includes(contentId);
@@ -323,6 +345,22 @@ const deleteLike = async (contentId) => {
     }
     getLikeList();
 };
+
+const searchPlace= async()=>{    
+    try {
+        //관광지 리스트가 내려올 것
+        let { data } = await http.get(`attrs/searchlist?searchWord=${searchWord.value}&pageIdx=${page.value}`);
+        //console.log(data);
+
+        if (data != null) {
+            //리스트 저장
+            attrList.value = data;
+            //console.log(attrList.value);
+        }
+    } catch (error) {
+        //console.log(error);
+    }
+}
 
 //먼저와야함
 getLikeList();
