@@ -1,0 +1,56 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- Users SQL -->
+<mapper namespace="com.mycom.enjoytrip.users.dao.UsersDao">
+
+    <!-- 한 회원만 상세보기 -->
+    <select id="usersDetail" parameterType="int"
+        resultType="com.mycom.enjoytrip.users.dto.UsersDto">
+        select *
+        from users where userId = #{userId}
+    </select>
+
+    <!-- 한 회원만 상세보기 이메일로 -->
+    <select id="findUsers" parameterType="string"
+        resultType="com.mycom.enjoytrip.users.dto.UsersDto">
+        select userId, email
+        from users where email = #{email}
+    </select>
+
+    <!-- 모든 회원 보기 -->
+    <select id="usersList" resultType="com.mycom.enjoytrip.users.dto.UsersDto">
+        select userId, email, password, name, profileImg
+        from users
+    </select>
+
+    <!-- 아마 회원가입 -->
+    <insert id="usersInsert"
+        parameterType="com.mycom.enjoytrip.users.dto.UsersDto" useGeneratedKeys="true" keyProperty="userId">
+        
+        insert into users ( email, password, name, profileImg,phoneNum,selfIntro,residence)
+        values( #{email}, #{password}, #{name}, #{profileImg}, #{phoneNum},#{selfIntro},#{residence})
+    </insert>
+
+    <!-- 마이페이지 개인정보 변경 -->
+    <update id="usersUpdate"
+        parameterType="com.mycom.enjoytrip.users.dto.UsersDto">
+        update users
+        set phoneNum = #{phoneNum}, selfIntro = #{selfIntro}, residence = #{residence}
+        where userId = #{userId}
+    </update>
+
+    <!-- 회원 정보 삭제 -->
+    <delete id="usersDelete" parameterType="int">
+        delete from users
+        where userId = #{userId}
+    </delete>
+    
+    
+    <!-- 로그인 -->
+    <select id="login" parameterType="string" resultType="com.mycom.enjoytrip.users.dto.UsersDto">
+        select * from users
+        where email = #{email}
+    </select>
+    
+    
+</mapper>

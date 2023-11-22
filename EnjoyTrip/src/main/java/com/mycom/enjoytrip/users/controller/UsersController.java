@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -44,7 +43,9 @@ public class UsersController {
 	}
 	
 	@PutMapping(value="/users/{userId}")
-	public int update(@PathVariable int userId, UsersDto dto){
+	public int update(@PathVariable int userId, @RequestBody UsersDto dto){
+		System.out.println("updateUser!! ");
+		System.out.println(dto);
 		return service.usersUpdate(dto);
 	}
 	
@@ -93,6 +94,10 @@ public class UsersController {
 			map.put("userName", userDto.getName());
 			map.put("userEmail", userDto.getEmail());
 			map.put("userId", id);
+			map.put("userPhoneNum", userDto.getPhoneNum());
+			map.put("userSelfIntro", userDto.getSelfIntro());
+			map.put("userResidence", userDto.getResidence());
+			map.put("userProfileImg", userDto.getProfileImg());
 			//map.put("userProfileImageUrl", userDto.getUserProfileImageUrl());			
 		}else {
 			map.put("result", "fail");

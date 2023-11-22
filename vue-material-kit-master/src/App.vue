@@ -22,15 +22,18 @@ let isLogin = sessionStorage.getItem("isLogin");
 let isRememberId = sessionStorage.getItem("isRememberId");
 
 if (isLogin == "true") {
-    let userEmail = sessionStorage.getItem("userEmail");
-    let userName = sessionStorage.getItem("userName");
-    let userId = sessionStorage.getItem("userId");
     setLogin({
         isLogin: true,
-        userName: userName,
-        userEmail: userEmail,
-        userId: userId,
+        userName: sessionStorage.getItem("userName"),
+        userEmail: sessionStorage.getItem("userEmail"),
         userPassword: "",
+        userPhoneNum: sessionStorage.getItem("userPhoneNum"),
+        userResidence: sessionStorage.getItem("userResidence"),
+        userSelfIntro: sessionStorage.getItem("userSelfIntro"),
+        isRememberId: sessionStorage.getItem("isRememberId"),
+        isLogin: sessionStorage.getItem("isLogin"),
+        userId: sessionStorage.getItem("userId"),
+        userProfileImg: sessionStorage.getItem("userProfileImg"),
     });
 } else if (isRememberId == "true") {
     let userEmail = sessionStorage.getItem("userEmail");
@@ -42,6 +45,7 @@ if (isLogin == "true") {
 </script>
 
 <template>
+    <link rel="shortcut icon" href="#" />
     <DefaultNavbar />
     <!-- <DefaultNavbar
         :sticky="true"

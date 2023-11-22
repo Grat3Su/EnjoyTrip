@@ -116,19 +116,19 @@ const logout = async () => {
                 userEmail: "",
             });
 
-            if (userStore.isRemeberId) {
+            if (userStore.isRememberId) {
                 setRememberId({
-                    isRemeberId: true,
+                    isRememberId: true,
                     userEmail: sessionStorage.getItem("userEmail"),
                 });
             } else {
                 setRememberId({
-                    isRemeberId: false,
+                    isRememberId: false,
                     userEmail: "",
                 });
             }
 
-            //router.push("/login");
+            router.push("/");
         } else if (data.result == "fail") {
             alert("이메일 또는 비밀번호를 확인해주세요");
         }
@@ -175,10 +175,14 @@ const logout = async () => {
                 ]"
                 :to="{ name: 'presentation' }"
                 rel="tooltip"
-                title="Designed and Coded by Creative Tim"
+                title="Voyage Hub"
                 data-placement="bottom"
             >
-                EnjoyTrip!
+                <img
+                    src="@/assets/img/icon.png"
+                    style="height: 20px; width: 20px"
+                    alt="icon"
+                />&ensp;Voyage Hub
             </RouterLink>
             <RouterLink
                 class="navbar-brand d-block d-md-none"
@@ -187,16 +191,29 @@ const logout = async () => {
                 "
                 to="/"
                 rel="tooltip"
-                title="Designed and Coded by Creative Tim"
+                title="Voyage Hub"
                 data-placement="bottom"
             >
-                EnjoyTrip!
+                Voyage Hub
             </RouterLink>
-            <a
-                href="https://www.creative-tim.com/product/vue-material-kit-pro"
-                class="btn btn-sm bg-gradient-success mb-0 ms-auto d-lg-none d-block"
-                >로그인</a
-            >
+            <div v-show="!userStore.isLogin">
+                <router-link
+                    to="/pages/landing-pages/basic"
+                    class="nav-item btn btn-sm bg-gradient-success mb-0 ms-auto d-lg-none d-block"
+                    :class="action.color"
+                    >Login</router-link
+                >
+            </div>
+
+            <div v-show="userStore.isLogin">
+                <a
+                    href="#"
+                    @click="logout"
+                    class="nav-item btn btn-sm bg-gradient-success mb-0 ms-auto d-lg-none d-block"
+                    :class="action.color"
+                    >Logout</a
+                >
+            </div>
             <button
                 class="navbar-toggler shadow-none ms-2"
                 type="button"
@@ -308,13 +325,6 @@ const logout = async () => {
                             :class="action.color"
                             >Login</router-link
                         >
-                        <!-- <a
-                            :href="action.route"
-                            class="btn btn-sm mb-0"
-                            :class="action.color"
-                            onclick="smoothToPricing('pricing-soft-ui')"
-                            >{{ action.label }}</a
-                        > -->
                     </li>
                     <li class="nav-item" v-show="userStore.isLogin">
                         <button
@@ -325,12 +335,6 @@ const logout = async () => {
                         >
                             Logout
                         </button>
-                        <!-- <router-link
-                            to="/pages/landing-pages/basic"
-                            class="btn btn-sm mb-0"
-                            :class="action.color"
-                            >Logout</router-link
-                        > -->
                     </li>
                 </ul>
             </div>

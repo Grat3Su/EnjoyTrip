@@ -1,4 +1,4 @@
-import { ref, reactive } from "vue";
+import { reactive } from "vue";
 import { defineStore } from "pinia";
 
 export const useUserStore = defineStore("userStore", () => {
@@ -11,6 +11,10 @@ export const useUserStore = defineStore("userStore", () => {
         userId: 0,
         userEmail: "",
         userPassword: "",
+        userSelfIntro: "",
+        userResidence: "",
+        userPhoneNum: "",
+        userProfileImg: "",
     });
 
     //login 후 변경
@@ -21,11 +25,16 @@ export const useUserStore = defineStore("userStore", () => {
         userStore.userEmail = payload.userEmail;
         userStore.userId = payload.userId;
         userStore.userPassword = "";
+        userStore.userSelfIntro = payload.userSelfIntro;
+        userStore.userResidence = payload.userResidence;
+        userStore.userPhoneNum = payload.userPhoneNum;
+        userStore.userProfileImg = payload.userProfileImg;
         // userStore.userProfileImageUrl = payload.userProfileImageUrl;
+        console.log("userStore:");
         console.log(userStore);
     };
     const setRememberId = (payload) => {
-        console.log("iseemeber : " + userStore.isRememberId);
+        console.log("isremember : " + userStore.isRememberId);
         userStore.isRememberId = payload.isRememberId;
         userStore.userEmail = payload.userEmail;
     };

@@ -16,21 +16,21 @@ import setNavPills from "@/assets/js/nav-pills";
 
 //hook
 onMounted(() => {
-  setNavPills();
+    setNavPills();
 });
 </script>
 <template>
-  <BaseLayout
-    title="Navbars"
-    :breadcrumb="[{ label: 'Navigation', route: '#' }, { label: 'Navbars' }]"
-  >
-    <View
-      title="Navbar dark"
-      :code="navbarDarkCode"
-      id="navbar-dark"
-      height="300  position-relative"
+    <BaseLayout
+        title="Navbars"
+        :breadcrumb="[{ label: 'Navigation', route: '#' }, { label: 'Navbars' }]"
     >
-      <NavbarDark />
-    </View>
-  </BaseLayout>
+        <View
+            title="Navbar dark"
+            :code="navbarDarkCode"
+            id="navbar-dark"
+            height="300  position-relative"
+        >
+            <NavbarDark />
+        </View>
+    </BaseLayout>
 </template>

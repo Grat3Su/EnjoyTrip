@@ -7,14 +7,14 @@
                 id="inputSearchWord"
                 type="text"
                 class="form-control"
-                v-model="searchText"
+                v-model.lazy="mapStore.searchWord"
                 placeholder="Search"
-                @keyup.enter="searchPlace(searchText)"
+                @keyup.enter="searchPlace(mapStore.searchWord)"
             />
             <button
                 id="btnSearchWord"
                 class="btn btn-success"
-                @click="searchPlace(searchText)"
+                @click="searchPlace(mapStore.searchWord)"
                 type="button"
             >
                 Search
@@ -22,6 +22,11 @@
         </div>
         <div class="map-area"></div>
         <br />
+        <div class="d-flex flex-row-reverse bd-highlight">
+            <button id="nextpage" class="btn btn-success" @click="nextPage()" type="button">
+                >>
+            </button>
+        </div>
 
         <section class="loc d-flex justify-content-around flex-row align-content-between flex-wrap">
             <div
@@ -47,14 +52,23 @@
 </template>
 
 <script>
-import { ref } from "vue";
+import { ref, watch } from "vue";
 import { useMapStore } from "@/stores/mapStore";
-
 // import MarkerHandler from "../views/Presentation/Components/marker-handler";
+
 export default {
     setup() {
         const { mapStore } = useMapStore();
-        let mapSearchText = mapStore.searchWord;
+        let mapSearchText = ref(mapStore.searchWord);
+
+        watch(
+            () => mapStore.searchWord,
+            (cur, prev) => {
+                mapSearchText.value = cur;
+            }
+        );
+
+        return { mapStore, mapSearchText };
     },
     searchText: ref(""),
     name: "Map",
@@ -163,10 +177,9 @@ export default {
             this.map.setCenter(new kakao.maps.LatLng(cur.lat, cur.lng));
         },
 
-        "mapStore.searchWord"(cur, prev) {
-            console.log(cur);
-            mapSearchText = cur;
-            this.showPlace(mapSearchText);
+        mapSearchText(cur) {
+            console.log("test: " + cur);
+            this.searchPlace(cur);
         },
     },
 };

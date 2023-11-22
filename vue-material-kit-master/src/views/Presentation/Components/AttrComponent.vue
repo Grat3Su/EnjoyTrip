@@ -276,19 +276,20 @@ const clickGugun = async () => {
 
 //좋아요 가져오기
 const getLikeList = async () => {
-    console.log(likeList.toString().includes(125266));
-    try {
-        //관광지 리스트가 내려올 것'
-        let { data } = await http.get(`likes/${userStore.userId}`);
+    if (userStore.userId != undefined) {
+        try {
+            //관광지 리스트가 내려올 것'
+            let { data } = await http.get(`likes/${userStore.userId}`);
 
-        if (data != null) {
-            //리스트 저장
-            likeList.value = data;
-        } else {
-            likeList.value = [];
+            if (data != null) {
+                //리스트 저장
+                likeList.value = data;
+            } else {
+                likeList.value = [];
+            }
+        } catch (error) {
+            //console.log(error);
         }
-    } catch (error) {
-        //console.log(error);
     }
 };
 
@@ -315,7 +316,7 @@ const deleteLike = async (contentId) => {
     try {
         //관광지 리스트가 내려올 것'
         let { data } = await http.delete(`likes?userId=${userStore.userId}&contentId=${contentId}`);
-        console.log(data);
+        //console.log(data);
     } catch (error) {
         //console.log(error);
     }

@@ -11,6 +11,6 @@ import lombok.Setter;
 @AllArgsConstructor
 public class UsersDto {
 	int userId;
-	String email, password, name, profileImg;
+	String email, password, name, profileImg,phoneNum,selfIntro,residence;
 	
 }

@@ -16,26 +16,11 @@ import { useRouter } from "vue-router";
 
 // material-input
 import setMaterialInput from "@/assets/js/material-input";
-
 onMounted(() => {
     setMaterialInput();
 });
 const { userStore, setLogin, setRememberId } = useUserStore();
 const router = useRouter();
-
-const init = () => {
-    let isRememberId = sessionStorage.getItem("isRememberId");
-
-    if (isRememberId) {
-        let userEmail = sessionStorage.getItem("userEmail");
-
-        setRememberId({
-            isRememberId: isRememberId,
-            userEmail: userEmail,
-        });
-    }
-};
-
 const login = async () => {
     let loginObj = {
         email: userStore.userEmail,
@@ -43,15 +28,19 @@ const login = async () => {
     };
     try {
         let { data } = await http.post("/users/login", loginObj);
-        console.log(loginObj);
+        console.log(data);
 
         if (data.result == "success") {
             //세션 스토리지에 담는다
             sessionStorage.setItem("isRememberId", userStore.isRememberId);
             sessionStorage.setItem("isLogin", true);
-            sessionStorage.setItem("userEmail", data.userEmail);
             sessionStorage.setItem("userId", data.userId);
+            sessionStorage.setItem("userEmail", data.userEmail);
             sessionStorage.setItem("userName", data.userName);
+            sessionStorage.setItem("userPhoneNum", data.userPhoneNum);
+            sessionStorage.setItem("userResidence", data.userResidence);
+            sessionStorage.setItem("userSelfIntro", data.userSelfIntro);
+            sessionStorage.setItem("userProfileImg", data.userProfileImg);
             // sessionStorage.setItem("userProfileImageUrl", data.userProfileImageUrl);
             console.log(data);
 
@@ -61,7 +50,10 @@ const login = async () => {
                 userName: data.userName,
                 userEmail: data.userEmail,
                 userId: data.userId,
-                // userProfileImageUrl: data.userProfileImageUrl,
+                userPhoneNum: data.userPhoneNum,
+                userResidence: data.userResidence,
+                userSelfIntro: data.userSelfIntro,
+                userProfileImg: data.userProfileImg,
             });
             setRememberId({
                 isRememberId: userStore.isRememberId,
@@ -76,8 +68,6 @@ const login = async () => {
         console.log(error);
     }
 };
-
-init();
 </script>
 <template>
     <!-- <DefaultNavbar transparent /> -->
