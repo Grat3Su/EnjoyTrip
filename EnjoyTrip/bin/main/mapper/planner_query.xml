@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- Board SQL -->
+<mapper namespace="com.mycom.enjoytrip.planner.dao.PlannerDao">
+	<select id="detail" parameterType="int"
+		resultType="com.mycom.enjoytrip.planner.dao.PlannerDao">
+		select day, contentId
+		from planner where userId
+		= #{userId} and day
+		= #{day}
+	</select>
+
+	<select id="list" parameterType="int"
+		resultType="com.mycom.enjoytrip.planner.dto.PlanListDto">
+		select planner.day, planner.contentId, planner.userId,
+		attraction_info.title, attraction_info.addr1,
+		attraction_info.first_image
+		from planner, attraction_info
+		where planner.contentId = attraction_info.content_id
+		and planner.userId = #{userId};
+	</select>
+
+	<insert id="insert"
+		parameterType="com.mycom.enjoytrip.planner.dto.PlannerDto">
+		insert into planner (userId, contentId, day)
+		values(#{userId}, #{contentId}, #{day})
+	</insert>
+
+	<update id="update"
+		parameterType="com.mycom.enjoytrip.planner.dto.PlannerDto">
+		update planner
+		set contentId = #{contentId}
+		where userId
+		= #{userId} and day
+		= #{day}
+	</update>
+
+	<delete id="delete" parameterType="map">
+		delete from planner
+		where userId
+		= #{userId}
+	</delete>
+
+</mapper>

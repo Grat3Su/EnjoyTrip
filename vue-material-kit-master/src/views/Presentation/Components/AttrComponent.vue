@@ -1,8 +1,9 @@
 <template>
-    <section class="d-flex flex-row flex-wrap">
-        <div class="dropdown">
+    <section class="d-flex flex-row flex-wrap align-items-center text-center">
+        <h5 class="me-3 mb-0">여행할 지역을 고르세요:</h5>
+        <div class="dropdown mx-2">
             <button
-                class="btn btn-secondary dropdown-toggle"
+                class="btn btn-secondary dropdown-toggle mb-0"
                 type="button"
                 id="dropdownMenuButton1"
                 data-bs-toggle="dropdown"
@@ -25,7 +26,7 @@
         </div>
         <div class="dropdown" v-show="sido != '시도'">
             <button
-                class="btn btn-secondary dropdown-toggle"
+                class="btn btn-secondary dropdown-toggle mb-0"
                 type="button"
                 id="dropdownMenuButton1"
                 data-bs-toggle="dropdown"
@@ -46,26 +47,28 @@
             </ul>
         </div>
     </section>
+    <br />
+    <h5>여행지를 검색어로 입력하세요!</h5>
     <div class="input-group mb-3 mt-3">
-            <!-- mb-3 mt-3  추가 -->
-            <input
-                id="inputSearchWord"
-                type="text"
-                class="form-control"
-                v-model.lazy="searchWord"
-                placeholder="Search"
-                style="background-color: rgb(234, 234, 234)"
-                @keyup.enter="searchPlace()"
-            />
-            <button
-                id="btnSearchWord"
-                class="btn btn-success"
-                @click="searchPlace( )"
-                type="button"
-            >
-                Search
-            </button>
-        </div>
+        <input
+            id="inputSearchWord"
+            type="text"
+            class="form-control"
+            v-model.lazy="searchWord"
+            placeholder="Search"
+            style="background-color: rgb(234, 234, 234); height: 40px"
+            @keyup.enter="searchPlace()"
+        />
+        <button
+            id="btnSearchWord"
+            class="btn btn-danger"
+            style="height: 40px"
+            @click="searchPlace()"
+            type="button"
+        >
+            Search
+        </button>
+    </div>
     <section class="loc d-flex flex-row justify-content-around flex-wrap">
         <div
             class="results row"
@@ -83,11 +86,11 @@
                 />
                 <div class="card-body">
                     <h5 class="card-title">{{ attr.title }}</h5>
-                    <p class="card-text">{{ attr.addr1 }} {{ attr.addr2 }}</p>
+                    <p class="card-text mb-5">{{ attr.addr1 }} {{ attr.addr2 }}</p>
 
-                    <div class="dropdown">
+                    <div class="dropdown d-flex align-items-center position-absolute bottom-3">
                         <button
-                            class="btn btn-secondary dropdown-toggle"
+                            class="btn btn-secondary dropdown-toggle mb-0"
                             type="button"
                             id="dropdownMenuButton1"
                             data-bs-toggle="dropdown"
@@ -149,14 +152,14 @@
             </div>
         </div>
     </section>
-
+    <br />
     <nav aria-label="Page navigation example">
         <ul class="pagination pagination-lg d-flex justify-content-center">
             <li class="page-item">
                 <button class="page-link" @click="clickPage(-1)">&laquo;</button>
             </li>
             <li class="page-item">
-                <button class="page-link">{{ page }}</button>
+                <button class="page-link">{{ page + 1 }}</button>
             </li>
             <li class="page-item">
                 <button class="page-link" @click="clickPage(1)">&raquo;</button>
@@ -346,10 +349,12 @@ const deleteLike = async (contentId) => {
     getLikeList();
 };
 
-const searchPlace= async()=>{    
+const searchPlace = async () => {
     try {
         //관광지 리스트가 내려올 것
-        let { data } = await http.get(`attrs/searchlist?searchWord=${searchWord.value}&pageIdx=${page.value}`);
+        let { data } = await http.get(
+            `attrs/searchlist?searchWord=${searchWord.value}&pageIdx=${page.value}`
+        );
         //console.log(data);
 
         if (data != null) {
@@ -360,7 +365,7 @@ const searchPlace= async()=>{
     } catch (error) {
         //console.log(error);
     }
-}
+};
 
 //먼저와야함
 getLikeList();
@@ -368,4 +373,8 @@ getList();
 getSidoList();
 </script>
 
-<style scoped></style>
+<style scoped>
+section {
+    margin: 0;
+}
+</style>

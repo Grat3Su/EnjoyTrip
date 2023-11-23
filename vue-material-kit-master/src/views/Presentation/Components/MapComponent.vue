@@ -1,6 +1,8 @@
 <template>
     <section class="Map">
         <div id="map" :options="mapOption"></div>
+        <br />
+        <h5>지도에서 확인할 여행지를 입력해주세요!</h5>
         <div class="input-group mb-3 mt-3">
             <!-- mb-3 mt-3  추가 -->
             <input
@@ -9,24 +11,23 @@
                 class="form-control"
                 v-model.lazy="mapStore.searchWord"
                 placeholder="Search"
-                style="background-color: rgb(234, 234, 234)"
+                style="background-color: rgb(234, 234, 234); height: 40px"
                 @keyup.enter="searchPlace(mapStore.searchWord)"
             />
             <button
                 id="btnSearchWord"
-                class="btn btn-success"
+                class="btn btn-danger"
                 @click="searchPlace(mapStore.searchWord)"
                 type="button"
             >
                 Search
             </button>
         </div>
-        <div class="map-area"></div>
         <br />
 
         <section class="loc d-flex justify-content-around flex-row align-content-between flex-wrap">
             <div
-                class="results row"
+                class="results row my-2 mx-2"
                 v-for="rs in search.results"
                 @click="showPlace(rs)"
                 :key="rs.id"
@@ -38,7 +39,6 @@
                             {{ rs.address_name }}
                         </p>
                         <br />
-                        <!-- <a href="#" localhref="" class="btn btn-primary">Go somewhere</a> -->
                     </div>
                 </div>
             </div>
@@ -50,7 +50,6 @@
 <script>
 import { ref, watch } from "vue";
 import { useMapStore } from "@/stores/mapStore";
-// import MarkerHandler from "../views/Presentation/Components/marker-handler";
 
 export default {
     setup() {
@@ -182,20 +181,9 @@ export default {
 </script>
 
 <style scoped>
-/* .test {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-} */
-
 #map {
     width: 100%;
     height: 400px;
     border: 1px #a8a8a8 solid;
 }
-/* .map-area {
-  display: flex;
-} */
 </style>

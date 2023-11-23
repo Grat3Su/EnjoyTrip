@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- Board SQL -->
+<mapper namespace="com.mycom.enjoytrip.board.dao.BoardDao">
+	<select id="detail" parameterType="int"
+		resultType="com.mycom.enjoytrip.board.dto.BoardDto">
+		select boardId, boardTitle, boardDetail, boardTime, userId,
+		userName
+		from board where boardId = #{boardId}
+
+	</select>
+
+	<!-- return 이 Collections 이면 board.dto 만 기술 -->
+	<select id="list" parameterType="map"
+		resultType="com.mycom.enjoytrip.board.dto.BoardDto">
+		select boardId, boardTitle, boardDetail, boardTime, userId,
+		userName
+		from board
+		where board.boardDetail like CONCAT('%',
+		#{searchWord}, '%') or
+		board.boardTitle like CONCAT('%', #{searchWord},
+		'%')
+		order by boardId desc
+		LIMIT #{limit} OFFSET #{offset}
+	</select>
+
+
+	<!-- return 이 primitive 이면 별도 기술 X -->
+	<insert id="insert"
+		parameterType="com.mycom.enjoytrip.board.dto.BoardDto">
+		insert into board ( boardTitle, boardDetail, userId,
+		userName)
+		values(#{boardTitle}, #{boardDetail}, #{userId}, #{userName})
+	</insert>
+
+	<update id="update"
+		parameterType="com.mycom.enjoytrip.board.dto.BoardDto">
+		update board
+		set boardTitle = #{boardTitle}
+		,boardDetail =
+		#{boardDetail}
+		where boardId = #{boardId}
+	</update>
+
+	<delete id="delete" parameterType="int">
+		delete from board
+		where boardId
+		= #{boardId}
+	</delete>
+
+
+	<!-- reaction query -->
+	<select id="reactionDetail" parameterType="int"
+		resultType="com.mycom.enjoytrip.board.dto.ReactionDto">
+		SELECT * FROM reaction where boardId = #{boardId};
+	</select>
+	<!-- reaction insert -->
+	<insert id="reactionInsert"
+		parameterType="com.mycom.enjoytrip.board.dto.ReactionDto">
+		INSERT INTO reaction (boardId, happy, normal, sad, upset)
+		VALUES (#{boardId},
+		#{happy}, #{normal}, #{sad}, #{upset});
+	</insert>
+	<!-- reaction update -->
+	<update id="reactionUpdate"
+		parameterType="com.mycom.enjoytrip.board.dto.ReactionDto">
+		UPDATE
+		reaction SET happy =#{happy}, normal = #{normal}, sad =
+		#{sad}, upset = #{upset} WHERE (boardId = #{boardId});
+
+	</update>
+</mapper> 

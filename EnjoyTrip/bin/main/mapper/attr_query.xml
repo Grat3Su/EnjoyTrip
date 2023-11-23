@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- Board SQL -->
+<mapper namespace="com.mycom.enjoytrip.attr.dao.AttrDao">
+	<select id="detail" parameterType="int"
+		resultType="com.mycom.enjoytrip.attr.dto.AttrDto">
+		SELECT ds.content_id, info.title, info.addr1, info.addr2,
+		info.first_image,
+		ds.overview
+		FROM attraction_description ds,
+		attraction_info info
+		where
+		ds.content_id = info.content_id
+		and
+		info.content_id = #{contentId};
+	</select>
+
+	<!-- return 이 Collections 이면 board.dto 만 기술 -->
+	<select id="list" parameterType="int"
+		resultType="com.mycom.enjoytrip.attr.dto.AttrDto">
+		SELECT ds.content_id, info.title, info.addr1, info.addr2,
+		info.first_image,
+		ds.overview, info.sido_code, info.gugun_code
+		FROM
+		attraction_description ds, attraction_info info
+		where
+		ds.content_id =
+		info.content_id
+		order by ds.content_id asc
+		limit #{pageIdx}, 30;
+	</select>
+
+	<!-- select search -->
+	<select id="searchList" parameterType="map"
+		resultType="com.mycom.enjoytrip.attr.dto.AttrDto">
+		SELECT ds.content_id, info.title, info.addr1, info.addr2,
+		info.first_image,
+		ds.overview, info.sido_code, info.gugun_code
+		FROM
+		attraction_description ds, attraction_info info
+		where
+		ds.content_id =
+		info.content_id
+        and (info.title like #{searchWord} or info.addr1 like #{searchWord})
+		order by ds.content_id asc
+		limit #{pageIdx}, 30;
+	</select>
+
+	<select id="sidoList" parameterType="map"
+		resultType="com.mycom.enjoytrip.attr.dto.AttrDto">
+		SELECT ds.content_id, info.title, info.addr1, info.addr2,
+		info.first_image,
+		ds.overview, info.sido_code, info.gugun_code
+		FROM
+		attraction_description ds, attraction_info info
+		where
+		ds.content_id =
+		info.content_id
+		and info.sido_code = #{sidoCode}
+		order by ds.content_id
+		asc
+		limit #{pageIdx}, 30;
+	</select>
+
+	<select id="gugunList" parameterType="map"
+		resultType="com.mycom.enjoytrip.attr.dto.AttrDto">
+		SELECT ds.content_id, info.title, info.addr1, info.addr2,
+		info.first_image,
+		ds.overview, info.sido_code, info.gugun_code
+		FROM
+		attraction_description ds, attraction_info info
+		where
+		ds.content_id =
+		info.content_id
+		and info.sido_code = #{sidoCode}
+		and info.gugun_code =
+		#{gugunCode}
+		order by ds.content_id asc
+		limit #{pageIdx}, 30;
+	</select>
+
+	<!-- sido -->
+	<select id="sido"
+		resultType="com.mycom.enjoytrip.attr.dto.LocDto">
+		SELECT sido_code, sido_name
+		FROM sido
+	</select>
+
+	<!-- gugun -->
+	<select id="gugun" parameterType="int"
+		resultType="com.mycom.enjoytrip.attr.dto.LocDto">
+		SELECT gugun_code, gugun_name, sido_code
+		FROM gugun
+		where
+		sido_code = #{sidoCode}
+	</select>
+
+
+	<!-- return 이 primitive 이면 별도 기술 X -->
+	<insert id="insert"
+		parameterType="com.mycom.enjoytrip.attr.dto.AttrDto">
+
+		insert into attraction_info (content_id, title, addr1,
+		addr2, first_image)
+		values(#{contentId}, #{title}, #{addr1}, #{addr2},
+		#{firstImage})
+
+	</insert>
+	<insert id="insert2"
+		parameterType="com.mycom.enjoytrip.attr.dto.AttrDto">
+		insert into attraction_description ( content_id,
+		overview)
+		values(#{contentId}, #{overview});
+	</insert>
+
+
+	<update id="update"
+		parameterType="com.mycom.enjoytrip.attr.dto.AttrDto">
+		UPDATE attraction_info
+		SET title = #{title}, addr1 =
+		#{addr1}, addr2 = #{addr2}, first_Image=
+		#{firstImage}
+		WHERE content_id
+		= #{contentId};
+	</update>
+
+	<update id="update2"
+		parameterType="com.mycom.enjoytrip.attr.dto.AttrDto">
+		UPDATE attraction_description
+		set overview = #{overview}
+		where content_id = #{contentId};
+	</update>
+
+
+	<delete id="delete" parameterType="int">
+		delete FROM
+		attraction_description
+		where content_id = #{contentId};
+	</delete>
+
+	<delete id="delete2" parameterType="int">
+		delete FROM attraction_info
+		where content_id = #{contentId};
+	</delete>
+
+	<!-- 좋아요 -->
+	<select id="likeDetailList" parameterType="int">
+		select distinct
+		likeattr.content_id, attraction_info.title,
+		attraction_info.addr1,attraction_info.addr2,
+		attraction_info.first_image, attraction_description.overview
+		from
+		likeattr, attraction_info, attraction_description
+		where
+		likeattr.content_id = attraction_info.content_id and
+		likeattr.content_id = attraction_description.content_id and
+		likeattr.user_Id = #{userId};
+	</select>
+
+	<select id="likeList" parameterType="int">
+		SELECT content_id from
+		likeattr
+		where user_id = #{userId}
+	</select>
+
+	<insert id="likeInsert" parameterType="map">
+		insert into likeattr
+		(content_id, user_id)
+		values(#{contentId}, #{userId})
+	</insert>
+
+	<delete id="likeDelete" parameterType="map">
+		delete FROM likeattr
+		where
+		content_id = #{contentId}
+		and user_id = #{userId}
+	</delete>
+</mapper>
